@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <LinkTo @route="index">Home</LinkTo>
+        </li>
+        <li nav-item>
+        <LinkTo @route="protected">Protected</LinkTo>
+        </li>
+        <li nav-item>
+        {{#if this.session.isAuthenticated}}
+            <button type="button" {{on "click" this.invalidateSession}}>Logout</button>
+        {{else}}
+            <LinkTo @route="login">Login</LinkTo>
+        {{/if}}
+        </li>
+    </ul>
+</nav>
+
+
+
+{{outlet}}
